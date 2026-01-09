@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: requestdrive-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: requestdrive
+  template:
+    metadata:
+      labels:
+        app: requestdrive
+    spec:
+      containers:
+      - name: requestdrive
+        image: dimitartrj/requestdrive-service:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: requestdrive-service
+spec:
+  type: ClusterIP
+  selector:
+    app: requestdrive
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
