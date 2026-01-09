@@ -8,6 +8,6 @@ import java.util.*;
 
 public interface DriveRequestRepository extends JpaRepository<DriveRequest, Integer> {
     List<DriveRequest> findByPassengerId(int passengerId);
-    List<DriveRequest> findByDriverId(Integer driverId);
+    List<DriveRequest> findByDriverId(int driverId);
     List<DriveRequest> findByStatus(RequestStatus status);
 }

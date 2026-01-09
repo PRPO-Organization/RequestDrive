@@ -15,10 +15,11 @@ public class DriveRequestService {
         this.repository = repository;
     }
 
-    public DriveRequest create(int passengerId, double pLat, double pLng,
+    public DriveRequest create(int passengerId, int driverId, double pLat, double pLng,
                                double dLat, double dLng) {
         DriveRequest r = new DriveRequest();
         r.setPassengerId(passengerId);
+        r.setDriverId(driverId);
         r.setPickupLat(pLat);
         r.setPickupLng(pLng);
         r.setDropoffLat(dLat);

@@ -11,7 +11,7 @@ public class DriveRequest {
     private int requestId;
 
     private int passengerId;
-    private Integer driverId;
+    private int driverId;
 
     private double pickupLat;
     private double pickupLng;
@@ -26,7 +26,7 @@ public class DriveRequest {
     public int getRequestId() { return requestId; }
     public int getPassengerId() { return passengerId; }
     public void setPassengerId(int passengerId) { this.passengerId = passengerId; }
-    public void setDriverId(Integer driverId) { this.driverId = driverId; }
+    public void setDriverId(int driverId) { this.driverId = driverId; }
     public void setPickupLat(double pickupLat) { this.pickupLat = pickupLat; }
     public void setPickupLng(double pickupLng) { this.pickupLng = pickupLng; }
     public void setDropoffLat(double dropoffLat) { this.dropoffLat = dropoffLat; }
@@ -34,7 +34,7 @@ public class DriveRequest {
     public void setStatus(RequestStatus status) { this.status = status; }
     public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 
-    public Integer getDriverId() { return driverId; }
+    public int getDriverId() { return driverId; }
     public double getPickupLat() { return pickupLat; }
     public double getPickupLng() { return pickupLng; }
     public double getDropoffLat() { return dropoffLat; }

@@ -17,11 +17,12 @@ public class DriveRequestController {
 
     @PostMapping
     public DriveRequest create(@RequestParam int passengerId,
+                               @RequestParam int driverId,
                                @RequestParam double pickupLat,
                                @RequestParam double pickupLng,
                                @RequestParam double dropoffLat,
                                @RequestParam double dropoffLng) {
-        return service.create(passengerId, pickupLat, pickupLng,
+        return service.create(passengerId, driverId,pickupLat, pickupLng,
                               dropoffLat, dropoffLng);
     }
 
