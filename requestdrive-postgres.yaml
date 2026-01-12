@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: requestdrive-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: requestdrive-postgres
+  template:
+    metadata:
+      labels:
+        app: requestdrive-postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15
+        ports:
+          - containerPort: 5432
+        env:
+          - name: POSTGRES_DB
+            value: requestdb
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: requestdrive-db-secret
+                key: DB_USER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: requestdrive-db-secret
+                key: DB_PASSWORD
+
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgres-data
+      volumes:
+          - name: postgres-data
+            emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: requestdrive-postgres
+spec:
+  type: ClusterIP
+  selector:
+    app: requestdrive-postgres
+  ports:
+    - name: postgres
+      protocol: TCP
+      port: 5432
+      targetPort: 5432

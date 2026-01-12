@@ -15,8 +15,7 @@ public class DriveRequestService {
         this.repository = repository;
     }
 
-    public DriveRequest create(int passengerId, int driverId, double pLat, double pLng,
-                               double dLat, double dLng) {
+    public DriveRequest create(int passengerId, int driverId, double pLat, double pLng, double dLat, double dLng) {
         DriveRequest r = new DriveRequest();
         r.setPassengerId(passengerId);
         r.setDriverId(driverId);

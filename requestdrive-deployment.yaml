@@ -16,7 +16,19 @@ spec:
       - name: requestdrive
         image: dimitartrj/requestdrive-service:latest
         ports:
-        - containerPort: 8080
+          - containerPort: 8080
+        env:
+          - name: SPRING_DATASOURCE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: requestdrive-db-secret
+                key: DB_USER
+          - name: SPRING_DATASOURCE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: requestdrive-db-secret
+                key: DB_PASSWORD
+
 ---
 apiVersion: v1
 kind: Service

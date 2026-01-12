@@ -7,7 +7,7 @@ import java.time.Instant;
 public class DriveRequest {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int requestId;
 
     private int passengerId;
