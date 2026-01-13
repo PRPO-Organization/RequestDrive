@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: requestdrive
-        image: dimitartrj/requestdrive-service:latest
+        image: prporegistry.azurecr.io/requestdrive-service:a38cdcad797d5eeaac3181622cf1718fca4887b0
         ports:
           - containerPort: 8080
         env:
